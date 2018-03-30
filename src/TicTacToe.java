@@ -11,7 +11,8 @@ public class TicTacToe {
 		Model model = new Model();
 		View view = new View();
 		Controller controller = new Controller(model, view);
-		gameWindow.setSize(WIDTH, HEIGHT);
+		controller.updateView();
+		gameWindow.setSize(WIDTH, HEIGHT+22);
 		gameWindow.add(view);
 		gameWindow.setVisible(true);
 		view.repaint();
