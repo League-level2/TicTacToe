@@ -15,15 +15,7 @@ public class Controller implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		int col = (e.getX() / (TicTacToe.WIDTH / 3));
-		int row = (e.getY() / (TicTacToe.HEIGHT / 3));
 	
-		if(model.makeMove(row, col, player + 1)) {
-		
-		player++;
-		player = player % 2;
-		}
-		view.repaint();
 	}
 	
 	void updateView() {
@@ -33,7 +25,14 @@ public class Controller implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		int col = (e.getX() / (TicTacToe.WIDTH / 3));
+		int row = (e.getY() / (TicTacToe.HEIGHT / 3));
+	
+		if(model.makeMove(row, col, player + 1)) {
+		
+		player++;
+		player = player % 2;
+		}
 		view.repaint();
 	}
 

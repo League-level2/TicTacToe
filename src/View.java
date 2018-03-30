@@ -24,7 +24,8 @@ public class View extends JPanel {
 					g.drawOval(j * TicTacToe.WIDTH / 3, i * TicTacToe.HEIGHT / 3, TicTacToe.WIDTH / 3,
 							TicTacToe.HEIGHT / 3);
 				} else if (board[i][j] == 2) {
-					g.drawString("X", j * TicTacToe.WIDTH / 3, i * TicTacToe.HEIGHT / 3 + TicTacToe.HEIGHT / 3);
+					g.drawLine(j * TicTacToe.WIDTH / 3, i * TicTacToe.HEIGHT / 3 ,(j+1) * TicTacToe.WIDTH / 3, (i+1) * TicTacToe.HEIGHT / 3 );
+					g.drawLine(j * TicTacToe.WIDTH / 3 + TicTacToe.WIDTH/3, i * TicTacToe.HEIGHT / 3 ,j * TicTacToe.WIDTH / 3, (i) * TicTacToe.HEIGHT / 3+ TicTacToe.HEIGHT/3);
 				}
 			}
 		}

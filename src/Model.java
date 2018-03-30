@@ -6,6 +6,7 @@ public class Model {
 		if (board[r][c] == 0) {
 			board[r][c] = player;
 			printBoard();
+			checkWin( r, c, player);
 			return true;
 		} else {
 			return false;
@@ -26,6 +27,10 @@ public class Model {
 			}
 			System.out.println();
 		}
+		
+	}
+	
+	public void checkWin(int r , int c, int player) {
 		
 	}
 	
