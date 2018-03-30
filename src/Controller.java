@@ -1,5 +1,6 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 public class Controller implements MouseListener {
 	Model model;
@@ -31,9 +32,19 @@ public class Controller implements MouseListener {
 		turn++;
 		turn = turn % 2;
 		}
+		computerPlayer();
 		view.repaint();
 	}
 
+	void computerPlayer(){
+		int player = turn + 1;
+		while(model.makeMove(new Random().nextInt(3), new Random().nextInt(3), player)==false) {
+			
+			}
+		turn++;
+		turn = turn % 2;
+	
+	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
 	}

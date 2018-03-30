@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Model {
 	int[][] board = new int[3][3];
@@ -31,7 +32,28 @@ public class Model {
 	}
 	
 	public void checkWin(int r , int c, int player) {
+		int countRow = 0;
+		int countCol = 0;
+		int countDiagonalLeft = 0;
+		int countDiagonalRight = 0;
 		
+		for(int i = 0; i < 3; i++){
+			if(board[r][i]== player){
+				countCol++;
+			} 
+			if(board[i][c]==player){
+				countRow++;
+			}
+			if(board[i][i] == player){
+				countDiagonalLeft++;
+			}
+			if(board[i][2-i] == player){
+				countDiagonalRight++;
+			}			
+		}
+		if(countRow >= 3 || countCol >= 3 || countDiagonalRight >= 3|| countDiagonalLeft >= 3){
+			JOptionPane.showMessageDialog(null, "YOU WON");
+		}
 	}
 	
 	

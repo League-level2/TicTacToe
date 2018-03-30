@@ -1,3 +1,5 @@
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 public class TicTacToe {
@@ -10,11 +12,12 @@ public class TicTacToe {
 	public TicTacToe() {
 		Model model = new Model();
 		View view = new View();
+		view.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		Controller controller = new Controller(model, view);
 		controller.updateView();
-		gameWindow.setSize(WIDTH, HEIGHT+22);
 		gameWindow.add(view);
 		gameWindow.setVisible(true);
+		gameWindow.pack();
 		view.repaint();
 		view.addMouseListener(controller);
 	}
