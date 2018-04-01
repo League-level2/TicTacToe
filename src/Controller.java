@@ -5,7 +5,9 @@ import java.util.Random;
 public class Controller implements MouseListener {
 	Model model;
 	View view;
-	int turn = 0;
+	static final int PLAYER1 = 1;
+	static final int PLAYER2 = 2;
+	int currentPlayer = PLAYER1;
 
 	public Controller(Model model, View view) {
 		super();
@@ -27,24 +29,35 @@ public class Controller implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		int col = (e.getX() / (TicTacToe.WIDTH / 3));
 		int row = (e.getY() / (TicTacToe.HEIGHT / 3));
-		int player = turn + 1;
-		if(model.makeMove(row, col, player)) {
-		turn++;
-		turn = turn % 2;
+		if(model.makeMove(row, col, currentPlayer)) {
+			if(model.checkWin(row, col, currentPlayer)) {
+				view.showWin();
+			}
+			if(model.checkDraw()) {
+				view.showDraw();
+			}
+		switchPlayers();
+		view.repaint();
 		}
 		computerPlayer();
-		view.repaint();
 	}
 
 	void computerPlayer(){
-		int player = turn + 1;
-		while(model.makeMove(new Random().nextInt(3), new Random().nextInt(3), player)==false) {
+		while(model.makeMove(new Random().nextInt(3), new Random().nextInt(3), currentPlayer)==false) {
 			
 			}
-		turn++;
-		turn = turn % 2;
+		switchPlayers();
 	
 	}
+	
+	void switchPlayers() {
+		if(currentPlayer == PLAYER1) {
+			currentPlayer = PLAYER2;
+		} else {
+			currentPlayer = PLAYER1;
+		}
+	}
+	
 	@Override
 	public void mouseReleased(MouseEvent e) {
 	}
