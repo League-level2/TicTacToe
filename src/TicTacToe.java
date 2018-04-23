@@ -20,5 +20,7 @@ public class TicTacToe {
 		gameWindow.pack();
 		view.repaint();
 		view.addMouseListener(controller);
+		gameWindow.addKeyListener(controller);
+		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
